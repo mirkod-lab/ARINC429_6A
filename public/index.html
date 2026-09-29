@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumentos | ARINC429_6A</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="layout">
+      <header class="page-header">
+        <p class="eyebrow">ARINC429_6A / MySQL</p>
+        <h1>Instrumentos</h1>
+        <p class="subtitle">Administración del catálogo</p>
+      </header>
+
+      <section class="editor" aria-labelledby="form-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Edición</p>
+            <h2 id="form-title">Nuevo instrumento</h2>
+          </div>
+          <span id="form-mode" class="mode-mark">CREAR</span>
+        </div>
+        <form id="instrument-form">
+          <label for="ins_descripcion">Descripción</label>
+          <div class="form-row">
+            <input
+              id="ins_descripcion"
+              name="ins_descripcion"
+              type="text"
+              maxlength="50"
+              placeholder="Ej. Indicador de presión"
+              autocomplete="off"
+              required
+            >
+            <button id="save-button" class="button button-primary" type="submit">Guardar</button>
+            <button id="cancel-button" class="button button-secondary" type="button" hidden>Cancelar</button>
+          </div>
+          <p class="field-note">Máximo 50 caracteres</p>
+        </form>
+      </section>
+
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading catalog-heading">
+          <div>
+            <p class="eyebrow">Registros</p>
+            <h2 id="catalog-title">Catálogo actual</h2>
+          </div>
+          <button id="refresh-button" class="button button-secondary" type="button">Actualizar</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="instrument-list"></tbody>
+          </table>
+          <p id="empty-state" class="empty-state" hidden>No hay instrumentos registrados.</p>
+        </div>
+      </section>
+      <footer>Conectado a la tabla <code>instrumentos</code></footer>
+    </main>
+  </body>
+</html>
